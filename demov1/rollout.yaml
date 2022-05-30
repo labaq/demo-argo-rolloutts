@@ -28,3 +28,7 @@ spec:
       activeService: superapi-svc-active
       previewService: superapi-svc-preview
       autoPromotionEnabled: false
+      # control
+      previewReplicaCount: 1
+      # control
+      scaleDownDelaySeconds: 30
