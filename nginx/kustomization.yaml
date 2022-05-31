@@ -10,7 +10,7 @@ commonLabels:
   env: dev
 
 configurations:
-  - https://argoproj.github.io/argo-rollouts/features/kustomize/rollout-transform.yaml
+  - rollout-transform.yaml
  
 resources:
   - deploy.yaml
