@@ -19,3 +19,8 @@ resources:
   - svc-preview.yaml
   - ing-active.yaml
   - ing-preview.yaml
+
+configMapGenerator:
+  - name: nginx-html
+    files:
+    - index.html=html/index.html
