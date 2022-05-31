@@ -13,6 +13,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: nginx-active
+            name: nginx-preview
             port:
               number: 80
