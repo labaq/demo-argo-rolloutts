@@ -17,8 +17,8 @@ spec:
       stableService: nginx-canary  # required
       trafficRouting:
         nginx:
-          stableIngress: nginx-active  # required
-          annotationPrefix: customingress.nginx.ingress.kubernetes.io # optional
+#          stableIngress: nginx-active  # required
+#          annotationPrefix: customingress.nginx.ingress.kubernetes.io # optional
       maxSurge: "25%"
       maxUnavailable: 0
       steps:
