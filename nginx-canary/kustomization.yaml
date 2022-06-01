@@ -17,6 +17,7 @@ resources:
   - rollout.yaml
   - svc-active.yaml
   - svc-preview.yaml
+  - ing-active.yaml
 
 configMapGenerator:
   - name: nginx-html
