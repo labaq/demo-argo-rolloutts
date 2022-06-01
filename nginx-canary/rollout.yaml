@@ -15,8 +15,8 @@ spec:
     canary:
       canaryService: nginx-canary-preview  # required
       stableService: nginx-canary  # required
-      trafficRouting:
-        nginx:
+#      trafficRouting:
+#        nginx:
 #          stableIngress: nginx-active  # required
 #          annotationPrefix: customingress.nginx.ingress.kubernetes.io # optional
       maxSurge: "25%"
