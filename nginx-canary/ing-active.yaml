@@ -13,6 +13,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: nginx-canary
+            name: nginx-stable
             port:
               number: 80
