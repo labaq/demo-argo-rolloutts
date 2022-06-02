@@ -36,17 +36,17 @@ spec:
           additionalIngressAnnotations:   # optional
             canary-by-header: X-Canary
             canary-by-header-value: iwantsit
-      maxSurge: 1
+      maxSurge: "20%"
       maxUnavailable: 0
       scaleDownDelaySeconds: 9
       steps:
-      - setWeight: 25
-      - setHeaderRouting:
-          match:
-            - headerName: "X-Canary"
-              headerValue:
-                exact: "iwantsit"
+      - setWeight: 30
+      #- setHeaderRouting:
+      #    match:
+      #      - headerName: "X-Canary"
+      #        headerValue:
+      #          exact: "iwantsit"
       - pause:
           duration: 1h # 1 hour
-      - setWeight: 60
+      - setWeight: 70
       - pause: {} # pause indefinitely
