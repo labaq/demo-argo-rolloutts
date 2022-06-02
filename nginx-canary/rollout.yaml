@@ -40,7 +40,7 @@ spec:
       maxUnavailable: 0
       scaleDownDelaySeconds: 9
       steps:
-      - setWeight: 30
+      - setWeight: 25
       #- setHeaderRouting:
       #    match:
       #      - headerName: "X-Canary"
@@ -48,5 +48,5 @@ spec:
       #          exact: "iwantsit"
       - pause:
           duration: 1h # 1 hour
-      - setWeight: 70
+      - setWeight: 75
       - pause: {} # pause indefinitely
