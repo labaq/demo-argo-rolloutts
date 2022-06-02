@@ -32,7 +32,7 @@ spec:
       trafficRouting:
         nginx:
           stableIngress: nginx-stable  # required
-          annotationPrefix: customingress.nginx.ingress.kubernetes.io # optional
+          #annotationPrefix: customingress.nginx.ingress.kubernetes.io # optional
           additionalIngressAnnotations:   # optional
             canary-by-header: X-Canary
             canary-by-header-value: iwantsit
@@ -41,6 +41,11 @@ spec:
       scaleDownDelaySeconds: 9
       steps:
       - setWeight: 25
+      - setHeaderRouting:
+          match:
+            - headerName: "X-Canary"
+              headerValue:
+                exact: "iwantsit"
       - pause:
           duration: 1h # 1 hour
       - setWeight: 60
