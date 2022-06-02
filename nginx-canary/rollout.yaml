@@ -29,16 +29,16 @@ spec:
       #    role: stable
       #  labels:
       #    role: stable
-      #trafficRouting:
-      #  nginx:
-      #    stableIngress: nginx-stable  # required
+      trafficRouting:
+        nginx:
+          stableIngress: nginx-stable  # required
       #    annotationPrefix: customingress.nginx.ingress.kubernetes.io # optional
-      #    additionalIngressAnnotations:   # optional
-      #      canary-by-header: X-Canary
-      #      canary-by-header-value: iwantsit
+          additionalIngressAnnotations:   # optional
+            canary-by-header: X-Canary
+            canary-by-header-value: iwantsit
       maxSurge: 1
       maxUnavailable: 0
-      #scaleDownDelaySeconds: 10
+      scaleDownDelaySeconds: 9
       steps:
       - setWeight: 25
       - pause:
