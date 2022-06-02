@@ -38,7 +38,7 @@ spec:
       #      canary-by-header-value: iwantsit
       maxSurge: 1
       maxUnavailable: 0
-      scaleDownDelaySeconds: 10
+      #scaleDownDelaySeconds: 10
       steps:
       - setWeight: 25
       - pause:
