@@ -36,8 +36,8 @@ spec:
           additionalIngressAnnotations:   # optional
             canary-by-header: X-Canary
             canary-by-header-value: iwantsit
-      maxSurge: "20%"
-      maxUnavailable: 0
+      maxSurge: 1
+      maxUnavailable: 1
       scaleDownDelaySeconds: 9
       steps:
       - setWeight: 25
