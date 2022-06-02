@@ -13,16 +13,25 @@ spec:
     name: nginx
   strategy:
     canary:
-      canaryService: nginx-canary-preview  # required
-      stableService: nginx-canary  # required
+      canaryService: nginx-canary  # required
+      stableService: nginx-stable  # required
+      # Metadata which will be attached to the canary pods. This metadata will
+      # only exist during an update, since there are no canary pods in a fully
+      # promoted rollout.
       canaryMetadata:
         annotations:
           role: canary
         labels:
           role: canary
+      # metadata which will be attached to the stable pods
+      stableMetadata:
+        annotations:
+          role: stable
+        labels:
+          role: stable
       trafficRouting:
         nginx:
-          stableIngress: nginx-active  # required
+          stableIngress: nginx-stable  # required
           annotationPrefix: customingress.nginx.ingress.kubernetes.io # optional
       maxSurge: 1
       maxUnavailable: 0
@@ -31,5 +40,5 @@ spec:
       - setWeight: 25
       - pause:
           duration: 1h # 1 hour
-      - setWeight: 65
+      - setWeight: 60
       - pause: {} # pause indefinitely
