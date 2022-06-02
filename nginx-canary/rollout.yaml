@@ -15,12 +15,18 @@ spec:
     canary:
       canaryService: nginx-canary-preview  # required
       stableService: nginx-canary  # required
+      canaryMetadata:
+        annotations:
+          role: canary
+        labels:
+          role: canary
       trafficRouting:
         nginx:
           stableIngress: nginx-active  # required
           annotationPrefix: customingress.nginx.ingress.kubernetes.io # optional
-      maxSurge: "25%"
+      maxSurge: 1
       maxUnavailable: 0
+      scaleDownDelaySeconds: 10
       steps:
       - setWeight: 25
       - pause:
