@@ -29,15 +29,15 @@ spec:
       #    role: stable
       #  labels:
       #    role: stable
-      trafficRouting:
-        nginx:
-          stableIngress: nginx-stable  # required
-          #annotationPrefix: customingress.nginx.ingress.kubernetes.io # optional
-          additionalIngressAnnotations:   # optional
-            canary-by-header: X-Canary
-            canary-by-header-value: iwantsit
+#      trafficRouting:
+#        nginx:
+#          stableIngress: nginx-stable  # required
+#          #annotationPrefix: customingress.nginx.ingress.kubernetes.io # optional
+#          additionalIngressAnnotations:   # optional
+#            canary-by-header: X-Canary
+#            canary-by-header-value: iwantsit
       maxSurge: 0
-      maxUnavailable: 3
+      maxUnavailable: 1
       #scaleDownDelaySeconds: 10
       dynamicStableScale: true ## Canary dynamicStableScale cannot be used with scaleDownDelaySeconds
       steps:
