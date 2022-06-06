@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: default
 
 namePrefix: dev-
+nameSuffix: -canary
 
 commonLabels:
   app: nginx
