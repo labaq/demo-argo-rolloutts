@@ -37,8 +37,8 @@ spec:
             canary-by-header: X-Canary
             canary-by-header-value: iwantsit
       maxSurge: 1
-      maxUnavailable: 1
-      scaleDownDelaySeconds: 9
+      maxUnavailable: 0
+      scaleDownDelaySeconds: 10
       steps:
       - setWeight: 25
       #- setHeaderRouting:
@@ -48,5 +48,7 @@ spec:
       #          exact: "iwantsit"
       - pause:
           duration: 1h # 1 hour
+      - setWeight: 50
+      - pause: {} # pause indefinitely
       - setWeight: 75
       - pause: {} # pause indefinitely
