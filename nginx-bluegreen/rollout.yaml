@@ -20,3 +20,4 @@ spec:
       previewReplicaCount: 1
       # control
       scaleDownDelaySeconds: 10
+      abortScaleDownDelaySeconds: 10

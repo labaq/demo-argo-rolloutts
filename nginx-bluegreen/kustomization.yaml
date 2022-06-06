@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: default
 
 namePrefix: dev-
+nameSuffix: -bg
 
 commonLabels:
   app: nginx
