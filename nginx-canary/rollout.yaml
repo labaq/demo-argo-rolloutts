@@ -39,6 +39,7 @@ spec:
       maxSurge: 0
       maxUnavailable: 3
       scaleDownDelaySeconds: 10
+      dynamicStableScale: true
       steps:
       - setWeight: 25
       #- setHeaderRouting:
