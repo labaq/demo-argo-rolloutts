@@ -16,9 +16,9 @@ configurations:
 resources:
   - deploy.yaml
   - rollout.yaml
-  - svc-active.yaml
-  - svc-preview.yaml
-  - ing-active.yaml
+  - svc-stable.yaml
+  - svc-canary.yaml
+  - ing-stable.yaml
 
 configMapGenerator:
   - name: nginx-html
