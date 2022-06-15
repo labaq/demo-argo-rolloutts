@@ -13,7 +13,7 @@ spec:
     name: nginx
   strategy:
     canary:
-      canaryService: nginx-canary  # required
+      canaryService: nginx-preview  # required
       stableService: nginx-stable  # required
       # Metadata which will be attached to the canary pods. This metadata will
       # only exist during an update, since there are no canary pods in a fully
