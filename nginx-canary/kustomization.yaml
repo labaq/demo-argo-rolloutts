@@ -12,13 +12,14 @@ commonLabels:
 
 configurations:
   - rollout-transform.yaml
- 
+
 resources:
   - deploy.yaml
   - rollout.yaml
   - svc-stable.yaml
-  - svc-canary.yaml
+  - svc-preview.yaml
   - ing-stable.yaml
+  - ing-preview.yaml
 
 configMapGenerator:
   - name: nginx-html

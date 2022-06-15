@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx-stable
+  name: nginx-preview
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: nginx-stable-canary.labaq.life
+  - host: nginx-preview-canary.labaq.life
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: nginx-stable
+            name: nginx-preview
             port:
               number: 80
