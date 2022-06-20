@@ -19,7 +19,8 @@ resources:
   - rollout.yaml
   - svc-stable.yaml
   - svc-canary.yaml
-  - istio-ingress.yaml
+  - gateway.yaml
+  - virtualservice.yaml
 
 configMapGenerator:
   - name: nginx-html
