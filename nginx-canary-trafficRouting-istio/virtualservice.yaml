@@ -2,19 +2,17 @@ apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: istio-vs
-  labels:
-    app: istio-vs
 spec:
   hosts:
   - "*"
   gateways:
-  - istio-gateway
+  - dev-istio-gateway-canary-istio
   http:
     - name: primary
       route:
         - destination:
-            host: nginx-stable
+            host: dev-nginx-stable-canary-istio
           weight: 100
         - destination:
-            host: nginx-canary
+            host: dev-nginx-canary-canary-istio
           weight: 0
