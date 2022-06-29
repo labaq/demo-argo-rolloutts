@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: default
+
+namePrefix: dev-
+nameSuffix: -canary-istio-subset
+
+commonLabels:
+  app: nginx
+  env: dev
+  type: istio
+
+configurations:
+  - rollout-transform.yaml
+ 
+resources:
+  - deploy.yaml
+  - rollout.yaml
+  - svc-stable.yaml
+  - gateway.yaml
+  - virtualservice.yaml
+  - DestinationRule.yaml
+
+configMapGenerator:
+  - name: nginx-html
+    files:
+    - index.html=html/index.html
