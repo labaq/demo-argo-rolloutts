@@ -7,8 +7,8 @@ nameSuffix: -canary-istio-subset
 
 commonLabels:
   app: nginx
-  env: dev
   type: istio
+  version: v1
 
 configurations:
   - rollout-transform.yaml
