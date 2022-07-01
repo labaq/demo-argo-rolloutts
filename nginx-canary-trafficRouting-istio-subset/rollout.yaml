@@ -45,15 +45,17 @@ spec:
       dynamicStableScale: true ## Canary dynamicStableScale cannot be used with scaleDownDelaySeconds
       steps:
       - setWeight: 25
+      - setHeaderRoute: # enable header based traffic routing where
+          name: "set-header-1"
+          match:
+          - headerName: "X-Canary"
+            headerValue:
+              exact: "iwantsit"
       - pause: {}
-      #- setHeaderRouting:
-      #    match:
-      #      - headerName: "X-Canary"
-      #        headerValue:
-      #          exact: "iwantsit"
-      #- pause:
-      #    duration: 1h # 1 hour
+      - setHeaderRoute:
+          name: "set-header-1" # disable header based traffic routing
       - setWeight: 50
       - pause: {} # pause indefinitely
       - setWeight: 75
       - pause: {} # pause indefinitely
+
