@@ -21,7 +21,6 @@ spec:
             name: example-demo01-vs
             routes:
             - primary
-            - canary
       #maxSurge: 0
       #maxUnavailable: 1
       #scaleDownDelaySeconds: 10
