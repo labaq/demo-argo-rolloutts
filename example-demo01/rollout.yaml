@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: example-demo01
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: example-demo01
+  workloadRef:                                 # Reference an existing Deployment using workloadRef field
+    apiVersion: apps/v1
+    kind: Deployment
+    name: example-demo01
+  strategy:
+    canary:
+      canaryService: example-demo01-canary  # required
+      stableService: example-demo01-stable  # required
+      trafficRouting:
+        istio:
+           virtualService: 
+            name: example-demo01-vs
+            routes:
+            - primary
+            - canary
+      #maxSurge: 0
+      #maxUnavailable: 1
+      #scaleDownDelaySeconds: 10
+      dynamicStableScale: true ## Canary dynamicStableScale cannot be used with scaleDownDelaySeconds
+      steps:
+      - setWeight: 25
+      - pause: {}
+      #- setHeaderRouting:
+      #    match:
+      #      - headerName: "X-Canary"
+      #        headerValue:
+      #          exact: "iwantsit"
+      #- pause:
+      #    duration: 1h # 1 hour
+      - setWeight: 50
+      - pause: {} # pause indefinitely
+      - setWeight: 75
+      - pause: {} # pause indefinitely
