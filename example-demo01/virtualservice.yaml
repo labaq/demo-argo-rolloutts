@@ -19,8 +19,11 @@ spec:
           port:
             number: 8080
           weight: 0
+    - name: canary
       route:
-        - destination:
-            host: example-demo01-stable
-          weight: 100
+      - destination:
+          host: example-demo01-stable
+          port:
+            number: 8080
+          weight: 0
 
