@@ -4,7 +4,7 @@ metadata:
   name: example-demo01-vs
 spec:
   hosts:
-  - "*"
+  - example-demo01-stable
   gateways:
   - example-demo-gw
   http:
