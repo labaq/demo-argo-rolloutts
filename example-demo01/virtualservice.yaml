@@ -8,8 +8,7 @@ spec:
   gateways:
   - example-demo-gw
   http:
-    - name: primary
-      match:
+    - match:
       - headers:
           user-end:
             exact: jason
@@ -19,8 +18,7 @@ spec:
           port:
             number: 8080
         weight: 0
-    - name: canary
-      route:
+    - route:
       - destination:
           host: example-demo01-stable
           port:
