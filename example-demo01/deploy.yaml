@@ -4,18 +4,15 @@ metadata:
   name: example-demo01
   labels:
     app: example-demo01
-    version: v2
 spec:
   replicas: 0
   selector:
     matchLabels:
       app: example-demo01
-      version: v2
   template:
     metadata:
       labels:
         app: example-demo01
-        version: v2
     spec:
       containers:
       - name: example-demo01

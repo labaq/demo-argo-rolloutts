@@ -4,20 +4,24 @@ metadata:
   name: example-demo01-vs
 spec:
   hosts:
-  - example-demo01-stable
+  - example-demo.labaq.life
   gateways:
   - example-demo-gw
   http:
-    - name: primary
-      route:
-      - destination:
-          host: example-demo01-canary
-          port:
-            number: 8080
-        weight: 0
-      - destination:
-          host: example-demo01-stable
-          port:
-            number: 8080
-        weight: 100
+  - match:
+    - headers:
+        user-end:
+          exact: jason
+    route:
+    - destination:
+        host: example-demo01-canary
+        port:
+          number: 8080
+        subset: canary
+  - route:
+    - destination:
+        host: example-demo01-stable
+        port:
+          number: 8080
+        subset: stable
 

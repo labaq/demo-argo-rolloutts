@@ -6,11 +6,12 @@ namePrefix:
 nameSuffix:
 
 resources:
-  - deploy.yaml
   - cm.yaml
-  - svc-stable.yaml
-  - svc-canary.yaml
+  - deploy.yaml
+  - destinationrule.yaml
   - gateway.yaml
-  - virtualservice.yaml
   - rollout.yaml
+  - svc-canary.yaml
+  - svc-stable.yaml
+  - virtualservice.yaml
 
