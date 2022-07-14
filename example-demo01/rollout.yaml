@@ -15,13 +15,19 @@ spec:
     canary:
       canaryService: example-demo01-canary  # required
       stableService: example-demo01-stable  # required
+      canaryMetadata:
+        labels:
+          release: canary
+      stableMetadata:
+        labels:
+          release: stable
       trafficRouting:
         istio:
            virtualService: 
             name: example-demo01-vs
-            routes:
-            - primary
-            - canary
+            #routes:
+            #- primary
+            #- canary
       #maxSurge: 0
       #maxUnavailable: 1
       #scaleDownDelaySeconds: 10
