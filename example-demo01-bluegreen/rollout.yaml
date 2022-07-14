@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: example-demo01
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: example-demo01
+  workloadRef:                                 # Reference an existing Deployment using workloadRef field
+    apiVersion: apps/v1
+    kind: Deployment
+    name: example-demo01
+  strategy:
+    blueGreen:
+      activeService: example-demo01-stable
+      previewService: example-demo01-canary
+      autoPromotionEnabled: false
+      # control
+      previewReplicaCount: 1
+      # control
+      scaleDownDelaySeconds: 10
+      abortScaleDownDelaySeconds: 10
