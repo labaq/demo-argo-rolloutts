@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: example-demo01
-  namespace: default
-data:
-  service_name: "http://example-demo02.default:8080"
