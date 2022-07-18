@@ -4,7 +4,7 @@ metadata:
   name: example-demo02-vs
 spec:
   hosts:
-  - "*"
+  - example-demo02-stable
   http:
   - match:
     - sourceLabels:
