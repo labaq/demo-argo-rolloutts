@@ -32,7 +32,7 @@ spec:
       maxSurge: 1
       maxUnavailable: 0
       #scaleDownDelaySeconds: 10
-      dynamicStableScale: true ## Canary dynamicStableScale cannot be used with scaleDownDelaySeconds
+      #dynamicStableScale: true ## Canary dynamicStableScale cannot be used with scaleDownDelaySeconds
       steps:
       - setWeight: 25
       - pause:
