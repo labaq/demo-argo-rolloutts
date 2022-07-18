@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: example-demo03
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: example-demo03
+  workloadRef:                                 # Reference an existing Deployment using workloadRef field
+    apiVersion: apps/v1
+    kind: Deployment
+    name: example-demo03
+  strategy:
+    canary:
+      # Metadata which will be attached to the canary pods. This metadata will
+      # only exist during an update, since there are no canary pods in a fully
+      # promoted rollout.
+      canaryMetadata:
+        annotations:
+          role: canary
+        labels:
+          role: canary
+      # metadata which will be attached to the stable pods
+      stableMetadata:
+        annotations:
+          role: stable
+        labels:
+          role: stable
+      maxSurge: 1
+      maxUnavailable: 0
+      #scaleDownDelaySeconds: 10
+      #dynamicStableScale: true ## Canary dynamicStableScale cannot be used with scaleDownDelaySeconds
+      steps:
+      - setWeight: 25
+      - pause:
+          duration: 1h # 1 hour
+      - setWeight: 50
+      - pause: {} # pause indefinitely
+      - setWeight: 75
+      - pause: {} # pause indefinitely
+
