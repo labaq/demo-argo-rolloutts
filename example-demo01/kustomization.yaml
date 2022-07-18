@@ -8,7 +8,6 @@ nameSuffix:
 resources:
   - cm.yaml
   - deploy.yaml
-  - destinationrule.yaml
   - gateway.yaml
   - rollout.yaml
   - svc-canary.yaml

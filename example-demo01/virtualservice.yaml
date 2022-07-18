@@ -17,11 +17,9 @@ spec:
         host: example-demo01-canary
         port:
           number: 8080
-        subset: canary
   - route:
     - destination:
         host: example-demo01-stable
         port:
           number: 8080
-        subset: stable
 
