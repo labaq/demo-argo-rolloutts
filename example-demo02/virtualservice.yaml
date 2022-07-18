@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: example-demo02-vs
+spec:
+  hosts:
+  - "*"
+  http:
+  - match:
+    - sourceLabels:
+        role: canary
+    route:
+    - destination:
+        host: example-demo02-canary
+        port:
+          number: 8080
+  - route:
+    - destination:
+        host: example-demo02-stable
+        port:
+          number: 8080
+
