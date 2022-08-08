@@ -18,8 +18,10 @@ resources:
   - rollout.yaml
   - svc-stable.yaml
   - svc-preview.yaml
+  - svc-root.yaml
   - ing-stable.yaml
   - ing-preview.yaml
+  - ing-root.yaml
 
 configMapGenerator:
   - name: nginx-html
