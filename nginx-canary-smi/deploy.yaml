@@ -12,6 +12,8 @@ spec:
       app: nginx
   template:
     metadata:
+      annotations:
+        linkerd.io/inject: enabled
       labels:
         app: nginx
     spec:
