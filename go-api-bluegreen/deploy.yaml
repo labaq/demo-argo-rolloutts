@@ -20,12 +20,3 @@ spec:
         ports:
         - containerPort: 8080
           name: api
-        lifecycle:
-          preStop:
-            exec:
-              command:
-                [
-                  "/bin/sh",
-                  "-c",
-                  "echo this pod is stopping. > /stop.log && sleep 20s",
-                ]
