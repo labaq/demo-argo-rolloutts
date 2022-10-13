@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: example-demo03
-        image: harbor-a.labaq.life/labaq/example-demo03
+        image: harbor.labaq.life/labaq/example-demo03
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
