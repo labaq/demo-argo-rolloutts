@@ -31,14 +31,9 @@ spec:
           role: stable
       maxSurge: 1
       maxUnavailable: 0
-      #scaleDownDelaySeconds: 10
+      #scaleDownDelaySeconds: 10 ## scaleDownDelaySeconds can only be used with traffic routing
       #dynamicStableScale: true ## Canary dynamicStableScale cannot be used with scaleDownDelaySeconds
       steps:
-      - setWeight: 25
-      - pause:
-          duration: 1h # 1 hour
       - setWeight: 50
-      - pause: {} # pause indefinitely
-      - setWeight: 75
       - pause: {} # pause indefinitely
 
