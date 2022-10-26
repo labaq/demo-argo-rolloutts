@@ -32,7 +32,8 @@ spec:
       maxSurge: 1
       maxUnavailable: 0
       #scaleDownDelaySeconds: 10 ## scaleDownDelaySeconds can only be used with traffic routing
-      #dynamicStableScale: true ## Canary dynamicStableScale cannot be used with scaleDownDelaySeconds
+      #dynamicStableScale: true  ## dynamicStableScale can only be used with traffic routing
+                                 ## Canary dynamicStableScale cannot be used with scaleDownDelaySeconds
       steps:
       - setWeight: 50
       - pause: {} # pause indefinitely
